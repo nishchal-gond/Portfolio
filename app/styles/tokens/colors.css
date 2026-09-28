@@ -1,6 +1,6 @@
 /* ========================================
    COLOR TOKENS
-   Warm neutral paper, ultramarine structure,
+   Warm neutral paper, Gulf-teal structure,
    amber reserved for live instrument readouts.
    ======================================== */
 
@@ -17,11 +17,11 @@
   --color-fg-light: #545a63;
 
   /* ===================
-     ACCENT — ultramarine
+     ACCENT — Gulf teal
      Structure, links, active state.
      =================== */
-  --color-accent: #1b2fbf;
-  --color-accent-hover: #16249c;
+  --color-accent: #0b6b6b;
+  --color-accent-hover: #085353;
 
   /* Filled controls need their own pair. A link accent is tuned for contrast
      against the page; reusing it as a button background put white text on it,

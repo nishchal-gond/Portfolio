@@ -17,16 +17,16 @@
   /* Overlay colors for dark mode */
   --color-overlay-darker: rgba(0, 0, 0, 0.6);
 
-  /* Accent — ultramarine lifted to hold contrast on ink.
+  /* Accent — Gulf teal lifted to hold contrast on ink.
      This value is for text and rules on the page background; it is far too
      light to sit behind white text (2.67:1), so filled controls keep a deep
      fill and light text of their own. */
-  --color-accent: #8098ff;
-  --color-accent-hover: #a3b3ff;
+  --color-accent: #45cfc4;
+  --color-accent-hover: #7fe0d8;
 
-  /* #2a3ad4 behind #f2f4f7 is 7.2:1; hover holds at 5.8:1. */
-  --color-accent-fill: #2a3ad4;
-  --color-accent-fill-hover: #3d4ce0;
+  /* #f2f4f7 on #0f766e is 4.97:1; hover on #0b6b6b holds at 5.7:1. */
+  --color-accent-fill: #0f766e;
+  --color-accent-fill-hover: #0b6b6b;
   --color-on-accent: #f2f4f7;
   --color-accent-light: color-mix(in srgb, var(--color-accent) 18%, transparent);
   --color-accent-underline: color-mix(in srgb, var(--color-accent) 40%, transparent);

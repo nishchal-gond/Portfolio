@@ -44,6 +44,46 @@
   text-wrap: balance;
 }
 
+/* Voiceprint — the one flourish on the page. Bar heights come from the
+   letters of the name (src/lib/voiceprint.ts); it sweeps in once, left to
+   right like a call connecting, then holds still. */
+.hero-voiceprint {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: min(100%, 26rem);
+  height: 2.75rem;
+  margin: 0 0 1.75rem;
+}
+
+.hero-voiceprint span {
+  flex: 1 1 0;
+  max-width: 5px;
+  height: calc(var(--h) * 100%);
+  border-radius: 1px;
+  background: var(--color-accent);
+  transform-origin: center;
+  animation: voiceprint-in 520ms var(--ease-out) both;
+  animation-delay: calc(var(--i) * 22ms);
+}
+
+@keyframes voiceprint-in {
+  from {
+    transform: scaleY(0.06);
+    opacity: 0.25;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-voiceprint span {
+    animation: none;
+  }
+}
+
 /* Tagline — set in the body serif at reading size, measure-constrained. */
 .hero-tagline {
   font-family: var(--font-body);

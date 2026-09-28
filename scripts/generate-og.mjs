@@ -46,7 +46,7 @@ const generatorDigest = createHash('sha256')
 const INK = '#0e1116';
 const PAPER = '#f2f1ec';
 const GRAPHITE = '#545a63';
-const ULTRAMARINE = '#1b2fbf';
+const TEAL = '#0b6b6b';
 const HAIRLINE = 'rgba(35, 39, 46, 0.18)';
 
 /**
@@ -171,7 +171,7 @@ function card() {
             display: 'flex',
           },
         },
-        h('span', { style: { color: ULTRAMARINE } }, profile.employer),
+        h('span', { style: { color: TEAL } }, profile.employer),
         // Satori collapses a leading space in a flex child, so the gap before
         // the em dash is set as spacing rather than as whitespace.
         h('span', { style: { marginLeft: '0.5em' } }, `— ${profile.focus}`),

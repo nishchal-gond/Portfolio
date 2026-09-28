@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 
 import profile from '@/data/profile.json';
+import { voiceprint } from '@/lib/voiceprint';
 
 import ThemePortrait from './ThemePortrait';
 
@@ -12,6 +14,17 @@ export default function Hero() {
           <h1 className="hero-title">
             <span className="hero-name">{profile.name}</span>
           </h1>
+
+          {/* A waveform computed from the letters of the name: the voice AI
+              work, signed. Decorative, so hidden from assistive tech. */}
+          <div className="hero-voiceprint" aria-hidden="true">
+            {voiceprint(profile.name).map((height, i) => (
+              <span
+                key={i}
+                style={{ '--h': height, '--i': i } as CSSProperties}
+              />
+            ))}
+          </div>
 
           <p className="hero-tagline">
             I&apos;m an {profile.role} at{' '}
