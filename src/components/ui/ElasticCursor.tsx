@@ -92,6 +92,8 @@ function ElasticCursor() {
     set.sx = gsap.quickSetter(jellyRef.current, "scaleX");
     set.sy = gsap.quickSetter(jellyRef.current, "scaleY");
     set.width = gsap.quickSetter(jellyRef.current, "width", "px");
+    // `set` is a stable mutable instance (useInstance), not reactive state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Start Animation loop
@@ -112,6 +114,8 @@ function ElasticCursor() {
     } else {
       set.r(0);
     }
+    // pos/vel/set are stable mutable instances (useInstance), read on every frame.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHovering, isLoading]);
 
   const [cursorMoved, setCursorMoved] = useState(false);

@@ -118,11 +118,12 @@ const FloatingDockDesktop = ({
     } else {
       controls.stop();
     }
+    const hintTimer = timer.current;
     return () => {
       controls.stop();
-      clearInterval(timer.current);
+      clearInterval(hintTimer);
     };
-  }, [showHint]);
+  }, [showHint, controls]);
   return (
     <div className="relative h-fit flex items-center justify-center">
       <motion.div

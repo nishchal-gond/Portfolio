@@ -28,6 +28,10 @@ export default function Particles({
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
+  const rafId = useRef<number>();
+
+  // The drawing helpers below only read refs and props, so the canvas loop is
+  // set up once on mount (re-running it would restart the animation).
   useEffect(() => {
     if (canvasRef.current) {
       context.current = canvasRef.current.getContext("2d");
@@ -38,15 +42,19 @@ export default function Particles({
 
     return () => {
       window.removeEventListener("resize", initCanvas);
+      if (rafId.current) window.cancelAnimationFrame(rafId.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     onMouseMove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mousePosition.x, mousePosition.y]);
 
   useEffect(() => {
     initCanvas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [refresh]);
 
   const initCanvas = () => {
@@ -224,7 +232,7 @@ export default function Particles({
         );
       }
     });
-    window.requestAnimationFrame(animate);
+    rafId.current = window.requestAnimationFrame(animate);
   };
 
   return (

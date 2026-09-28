@@ -65,7 +65,8 @@ const AnimatedDiv = ({
   id: string;
   onCompleted: () => void;
 }) => {
-  const randY = getRandomHeight();
+  // Picked once per cat; recomputing on every render made it jump.
+  const [randY] = React.useState(getRandomHeight);
 
   const controls = useAnimationControls();
 
@@ -75,7 +76,7 @@ const AnimatedDiv = ({
       y: randY,
       transition: { duration: 5, ease: "linear" },
     });
-  }, [controls]);
+  }, [controls, randY]);
 
   return (
     <motion.div
