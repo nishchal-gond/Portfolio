@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /api
 
-Sitemap: https://nishchalgond.com/sitemap.xml
+Sitemap: https://nishchal.is-a.dev/sitemap.xml

@@ -5,7 +5,7 @@
 import profile from '@/data/profile.json';
 
 // Site configuration
-export const SITE_URL = 'https://nishchalgond.com';
+export const SITE_URL = 'https://nishchal.is-a.dev';
 export const AUTHOR_NAME = profile.name;
 export const TWITTER_HANDLE = '@ngond49';
 /**
