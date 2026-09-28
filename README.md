@@ -1,6 +1,6 @@
 # Nishchal Gond: Personal Site
 
-The source for [nishchal.is-a.dev](https://nishchal.is-a.dev): portfolio, résumé
+The source for [nishchalgond.vercel.app](https://nishchalgond.vercel.app): portfolio, résumé
 and projects for Nishchal Gond, AI Specialist & Full Stack Engineer in Dubai.
 
 Built with [Next.js](https://nextjs.org/), [React](https://react.dev/),

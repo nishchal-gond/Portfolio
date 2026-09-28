@@ -5,6 +5,7 @@ import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
 import projects from '@/data/projects';
+import { createHeadingId } from '@/lib/anchors';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
@@ -39,7 +40,7 @@ export default function HomePage() {
           {featured.map((project) => (
             <Link
               key={project.title}
-              href="/projects/"
+              href={`/projects/#${createHeadingId(project.title)}`}
               className="home-writing-item"
             >
               {project.tech && (
