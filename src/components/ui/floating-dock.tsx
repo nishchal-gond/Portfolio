@@ -99,7 +99,7 @@ const FloatingDockDesktop = ({
 }) => {
   let mouseX = useMotionValue(Infinity);
   const [showHint, setShowHint] = useState(true);
-  const timer = useRef<NodeJS.Timeout>();
+  const timer = useRef<NodeJS.Timeout | undefined>(undefined);
   const controls = useAnimation();
   useEffect(() => {
     if (showHint) {

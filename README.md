@@ -2,14 +2,14 @@
 
 Personal portfolio site — [nishchalgond.vercel.app](https://nishchalgond.vercel.app/)
 
-Built with Next.js 14 (App Router), TypeScript and Tailwind CSS, with 3D scenes,
+Built with Next.js 16 (App Router), TypeScript and Tailwind CSS, with 3D scenes,
 scroll-driven animation and a working contact form.
 
 ## Stack
 
 | Layer | Used |
 | --- | --- |
-| Framework | Next.js 14 (App Router), React 18, TypeScript |
+| Framework | Next.js 16 (App Router, Turbopack), React 19, TypeScript |
 | Styling | Tailwind CSS, Sass, `tailwind-merge`, `class-variance-authority` |
 | UI primitives | Radix UI, `lucide-react`, `react-icons` |
 | Motion | GSAP, Framer Motion, Lenis (smooth scroll) |
@@ -19,7 +19,7 @@ scroll-driven animation and a working contact form.
 
 ## Getting started
 
-Requires Node.js 18.17 or newer (Next.js 14 minimum).
+Requires Node.js 20.9 or newer (Next.js 16 minimum).
 
 ```bash
 npm install
@@ -51,7 +51,7 @@ Without these the site still builds and renders; only the contact form fails and
 | `npm run dev` | Development server with hot reload |
 | `npm run build` | Production build |
 | `npm run start` | Serve the production build |
-| `npm run lint` | ESLint via `next lint` |
+| `npm run lint` | ESLint (flat config in `eslint.config.mjs`) |
 
 ## Project structure
 

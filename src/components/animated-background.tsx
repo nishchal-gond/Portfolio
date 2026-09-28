@@ -37,8 +37,8 @@ const AnimatedBackground = () => {
 
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const [activeSection, setActiveSection] = useState<Section>("hero");
-  const bongoAnimation = useRef<Animation>();
-  const keycapAnimations = useRef<Animation>();
+  const bongoAnimation = useRef<Animation | undefined>(undefined);
+  const keycapAnimations = useRef<Animation | undefined>(undefined);
   const keyboardRevealed = useRef(false);
 
   // Show the hovered/pressed skill on the keyboard's screen.

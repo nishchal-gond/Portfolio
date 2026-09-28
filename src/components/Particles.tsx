@@ -28,7 +28,7 @@ export default function Particles({
   const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
-  const rafId = useRef<number>();
+  const rafId = useRef<number | undefined>(undefined);
 
   // The drawing helpers below only read refs and props, so the canvas loop is
   // set up once on mount (re-running it would restart the animation).

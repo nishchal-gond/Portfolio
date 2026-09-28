@@ -6,11 +6,12 @@ interface EmailTemplateProps {
   message: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+// A plain function (not React.FC) so the API route can call it directly.
+export const EmailTemplate = ({
   fullName,
   email,
   message,
-}) => (
+}: Readonly<EmailTemplateProps>) => (
   <div>
     <h1>from: {fullName}!</h1>
     <div className="text-red-500">{email} sent you a message</div>

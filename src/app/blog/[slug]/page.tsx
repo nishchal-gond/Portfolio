@@ -6,14 +6,15 @@ import { ArrowLeft } from "lucide-react";
 import { formatDate, getPost, getPosts } from "@/lib/blog";
 import { config } from "@/data/config";
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getPost(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) return {};
   return {
     title: `${post.title} | ${config.author}`,
@@ -29,8 +30,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function PostPage({ params }: Props) {
-  const post = getPost(params.slug);
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPost(slug);
   if (!post) notFound();
 
   const jsonLd = {

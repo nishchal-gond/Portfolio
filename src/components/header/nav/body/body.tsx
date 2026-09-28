@@ -5,7 +5,7 @@ import { blur, translate } from "../../anim";
 import { Link as LinkType } from "@/types";
 import { cn } from "@/lib/utils";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 
 interface SelectedLink {
   isActive: boolean;

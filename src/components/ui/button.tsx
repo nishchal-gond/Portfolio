@@ -49,10 +49,10 @@ const addClassNameRecursively = (
   className: string
 ): ReactNode => {
   const foo = (child: ReactNode) => {
-    if (!isValidElement(child)) return child;
+    if (!isValidElement<{ className?: string; children?: ReactNode }>(child))
+      return child;
 
     return cloneElement(child, {
-      // @ts-ignore
       className: `${child.props.className || ""} ${className}`.trim(),
       children: addClassNameRecursively(child.props.children, className),
     });

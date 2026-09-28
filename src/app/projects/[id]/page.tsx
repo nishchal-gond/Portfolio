@@ -8,14 +8,15 @@ import { PROJECT_SKILLS } from "@/data/project-skills";
 import ProjectLinks from "@/components/projects/project-links";
 import { config } from "@/data/config";
 
-type Props = { params: { id: string } };
+type Props = { params: Promise<{ id: string }> };
 
 export function generateStaticParams() {
   return projects.map((p) => ({ id: p.id }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const project = getProject(params.id);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const project = getProject(id);
   if (!project) return {};
   return {
     title: `${project.title} | ${config.author}`,
@@ -36,8 +37,9 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
   </section>
 );
 
-export default function ProjectPage({ params }: Props) {
-  const project = getProject(params.id);
+export default async function ProjectPage({ params }: Props) {
+  const { id } = await params;
+  const project = getProject(id);
   if (!project) notFound();
 
   const stack = [...project.skills.frontend, ...project.skills.backend].map(
