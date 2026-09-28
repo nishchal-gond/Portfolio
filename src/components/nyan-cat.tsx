@@ -49,7 +49,6 @@ const NyanCat = () => {
           <AnimatedDiv
             key={div.id}
             id={div.id}
-            onClick={() => console.log("clicked")}
             onCompleted={() => {
               setDivs(divs.filter((d) => d.id !== div.id));
             }}
@@ -61,14 +60,13 @@ const NyanCat = () => {
 
 const AnimatedDiv = ({
   id,
-  onClick,
   onCompleted,
 }: {
   id: string;
-  onClick: () => void;
   onCompleted: () => void;
 }) => {
-  const randY = getRandomHeight();
+  // Picked once per cat; recomputing on every render made it jump.
+  const [randY] = React.useState(getRandomHeight);
 
   const controls = useAnimationControls();
 
@@ -78,11 +76,7 @@ const AnimatedDiv = ({
       y: randY,
       transition: { duration: 5, ease: "linear" },
     });
-  }, [controls]);
-
-  const handlePause = () => {
-    onClick();
-  };
+  }, [controls, randY]);
 
   return (
     <motion.div
@@ -90,7 +84,6 @@ const AnimatedDiv = ({
       initial={{ x: "-20vw", y: randY }}
       animate={controls}
       onAnimationComplete={onCompleted}
-      onClick={handlePause}
     >
       <Image
         src="/assets/nyan-cat.gif"

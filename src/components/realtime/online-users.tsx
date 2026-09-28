@@ -59,6 +59,9 @@ const OnlineUsers = () => {
     localStorage.setItem("username", newName);
   };
 
+  // Live presence is optional (NEXT_PUBLIC_WS_URL); render nothing without a server.
+  if (!socket) return null;
+
   return (
     <Popover>
       <PopoverTrigger asChild>

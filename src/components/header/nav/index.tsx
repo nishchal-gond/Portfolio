@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import { height } from "../anim";
 import Body from "./body/body";
-import Footer from "./footer/footer";
-import Image from "./image/image";
+import NavImage from "./image/image";
 
-import { links } from "@/components/header/config";
+import { links as allLinks } from "@/components/header/config";
 import { cn } from "@/lib/utils";
 
 interface IndexProps {
   setIsActive: (isActive: boolean) => void;
+  showBlog?: boolean;
 }
 
 interface SelectedLinkState {
@@ -18,7 +18,8 @@ interface SelectedLinkState {
   index: number;
 }
 
-const Index: React.FC<IndexProps> = ({ setIsActive }) => {
+const Index: React.FC<IndexProps> = ({ setIsActive, showBlog = false }) => {
+  const links = showBlog ? allLinks : allLinks.filter((l) => l.href !== "/blog");
   const [selectedLink, setSelectedLink] = useState<SelectedLinkState>({
     isActive: false,
     index: 0,
@@ -40,13 +41,11 @@ const Index: React.FC<IndexProps> = ({ setIsActive }) => {
             setSelectedLink={setSelectedLink}
             setIsActive={setIsActive}
           />
-          {/* <Footer /> */}
         </div>
-        <Image
+        <NavImage
           src={links[selectedLink.index].thumbnail}
           isActive={selectedLink.isActive}
         />
-        {/* <p>{links[selectedLink.index].thumbnail}</p> */}
       </div>
     </motion.div>
   );

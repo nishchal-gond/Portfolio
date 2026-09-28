@@ -40,7 +40,7 @@ const LOADING_TIME = 2.5;
 function Preloader({ children, disabled = false }: PreloaderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingPercent, setLoadingPercent] = useState(0);
-  const loadingTween = useRef<gsap.core.Tween>();
+  const loadingTween = useRef<gsap.core.Tween | undefined>(undefined);
 
   const bypassLoading = () => {
     loadingTween.current?.progress(0.99).kill();

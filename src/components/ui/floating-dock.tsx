@@ -99,7 +99,7 @@ const FloatingDockDesktop = ({
 }) => {
   let mouseX = useMotionValue(Infinity);
   const [showHint, setShowHint] = useState(true);
-  const timer = useRef<NodeJS.Timeout>();
+  const timer = useRef<NodeJS.Timeout | undefined>(undefined);
   const controls = useAnimation();
   useEffect(() => {
     if (showHint) {
@@ -118,11 +118,12 @@ const FloatingDockDesktop = ({
     } else {
       controls.stop();
     }
+    const hintTimer = timer.current;
     return () => {
       controls.stop();
-      clearInterval(timer.current);
+      clearInterval(hintTimer);
     };
-  }, [showHint]);
+  }, [showHint, controls]);
   return (
     <div className="relative h-fit flex items-center justify-center">
       <motion.div

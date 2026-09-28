@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
@@ -52,40 +53,35 @@ const HeroSection = () => {
                         )}
                       >
                         {config.author.split(" ")[0]}
-                        <br className="md:block hiidden" />
+                        <br />
                         {config.author.split(" ")[1]}
-                        {/* PLEASE hello??
-
-                        <br className="md:block hiidden" />
-                        UNMUTE ME 😢😢 */}
                       </h1>
                     </TooltipTrigger>
                     <TooltipContent
                       side="top"
                       className="dark:bg-white dark:text-black"
                     >
-                      theres something waiting for you in devtools
+                      there&apos;s something waiting for you in devtools 👀
                     </TooltipContent>
                   </Tooltip>
                 </BlurIn>
-                {/* <div className="md:block hidden bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 w-screen h-px animate-fade-right animate-glow" /> */}
-                <BlurIn delay={1.2}>
+                                <BlurIn delay={1.2}>
                   <p
                     className={cn(
                       "md:self-start md:mt-4 font-thin text-md text-slate-500 dark:text-zinc-400 ml-3",
                       "cursor-default font-display sm:text-xl md:text-xl bg-clip-text max-w-md"
                     )}
                   >
-                    Full-Stack Developer | AI & ML Enthusiast | Web & Android App Development | React, Python, Flask, Next.js
+                    AI Specialist building AI systems, automation &amp; full-stack
+                    web apps. Python · LLMs &amp; RAG · React/Next.js · Cloud
                   </p>
                 </BlurIn>
               </div>
               <div className="mt-8 md:ml-2 flex flex-col gap-3">
                 <Link
-                  href={
-                    "https://drive.google.com/drive/folders/1z3_9i19gtTWo0o31veBASM2lnQtoPVuN?usp=drive_link"
-                  }
+                  href={config.resume}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1"
                 >
                   <BoxReveal delay={2} width="100%" >
@@ -114,6 +110,8 @@ const HeroSection = () => {
                   <Link
                     href={config.social.github}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
                   >
                     <Button variant={"outline"}>
                       <SiGithub size={24} />
@@ -122,6 +120,8 @@ const HeroSection = () => {
                   <Link
                     href={config.social.linkedin}
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
                   >
                     <Button variant={"outline"}>
                       <SiLinkedin size={24} />

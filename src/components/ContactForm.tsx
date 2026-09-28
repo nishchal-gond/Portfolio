@@ -13,6 +13,7 @@ const ContactForm = () => {
   const [fullName, setFullName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
+  const [website, setWebsite] = React.useState(""); // honeypot
   const [loading, setLoading] = React.useState(false);
 
   const { toast } = useToast();
@@ -31,10 +32,12 @@ const ContactForm = () => {
           fullName,
           email,
           message,
+          website,
         }),
       });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.error)
+        throw new Error(data.error || "Something went wrong!");
       toast({
         title: "Thank you!",
         description: "I'll get back to you as soon as possible.",
@@ -52,7 +55,10 @@ const ContactForm = () => {
     } catch (err) {
       toast({
         title: "Error",
-        description: "Something went wrong! Please check the fields.",
+        description:
+          err instanceof Error
+            ? err.message
+            : "Something went wrong! Please check the fields.",
         className: cn(
           "top-0 w-full flex justify-center fixed md:max-w-7xl md:top-4 md:right-4"
         ),
@@ -87,10 +93,21 @@ const ContactForm = () => {
           />
         </LabelInputContainer>
       </div>
+      {/* Honeypot: hidden from people, bots fill it in */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+      />
       <div className="grid w-full gap-1.5 mb-4">
         <Label htmlFor="content">Your Message</Label>
         <Textarea
-          placeholder="Tell me about about your project,"
+          placeholder="Tell me about your project…"
           id="content"
           required
           value={message}

@@ -3,7 +3,7 @@ import { SocketContext, User, UserMap } from "@/contexts/socketio";
 import { useMouse } from "@/hooks/use-mouse";
 import { useThrottle } from "@/hooks/use-throttle";
 import { MousePointer2 } from "lucide-react";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
@@ -39,17 +39,21 @@ const RemoteCursors = () => {
     return () => {
       socket.off("cursor-changed");
     };
-  }, [socket, isMobile]);
-  const handleMouseMove = useThrottle((x, y) => {
-    socket?.emit("cursor-change", {
-      pos: { x, y },
-      socketId: socket.id,
-    });
-  }, 200);
+  }, [socket, isMobile, setUsers]);
+  const emitCursor = useCallback(
+    (x: number, y: number) => {
+      socket?.emit("cursor-change", {
+        pos: { x, y },
+        socketId: socket.id,
+      });
+    },
+    [socket]
+  );
+  const handleMouseMove = useThrottle(emitCursor, 200);
   useEffect(() => {
     if (isMobile) return;
     handleMouseMove(x, y);
-  }, [x, y, isMobile]);
+  }, [x, y, isMobile, handleMouseMove]);
   const users = Array.from(_users.values());
   return (
     <div className="h-0 z-10 relative">
@@ -111,7 +115,7 @@ const Cursor = ({
         // setShowText(false);
       }, timeToRead);
     }
-  }, [msgs]);
+  }, [msgs, socketId]);
 
   return (
     <motion.div
