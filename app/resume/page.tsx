@@ -8,7 +8,7 @@ import Skills from '@/components/Resume/Skills';
 import PageWrapper from '@/components/Template/PageWrapper';
 import profile from '@/data/profile.json';
 import degrees from '@/data/resume/degrees';
-import { categories, skills } from '@/data/resume/skills';
+import skillGroups from '@/data/resume/skills';
 import work from '@/data/resume/work';
 import { createPageMetadata } from '@/lib/metadata';
 import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
@@ -65,7 +65,7 @@ export default function ResumePage() {
           </section>
 
           <section id="skills" className="resume-section">
-            <Skills skills={skills} categories={categories} />
+            <Skills groups={skillGroups} />
           </section>
 
           <section id="references" className="resume-section">

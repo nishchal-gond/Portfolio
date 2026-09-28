@@ -68,7 +68,15 @@
   }
 }
 
+/* Skill links on the resume jump straight to a card, so it clears the
+   sticky header and marks itself as the one that was asked for. */
+.project-card:target {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 var(--rule) var(--color-accent);
+}
+
 .project-card {
+  scroll-margin-top: 6rem;
   background: transparent;
   border-radius: 0;
   overflow: hidden;

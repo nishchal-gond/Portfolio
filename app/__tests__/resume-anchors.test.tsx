@@ -6,7 +6,7 @@ import Experience from '@/components/Resume/Experience';
 import References from '@/components/Resume/References';
 import Skills from '@/components/Resume/Skills';
 import degrees from '@/data/resume/degrees';
-import { categories, skills } from '@/data/resume/skills';
+import skillGroups from '@/data/resume/skills';
 import work from '@/data/resume/work';
 
 const SECTIONS = ['experience', 'education', 'skills', 'references'];
@@ -26,7 +26,7 @@ function renderResumeSections() {
         <Education data={degrees} />
       </section>
       <section id="skills">
-        <Skills skills={skills} categories={categories} />
+        <Skills groups={skillGroups} />
       </section>
       <section id="references">
         <References />

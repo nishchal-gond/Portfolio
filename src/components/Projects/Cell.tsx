@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 
 import type { Project } from '@/data/projects';
+import { createHeadingId } from '@/lib/anchors';
 import { PROJECT_IMAGE } from '@/lib/utils';
 
 interface CellProps {
@@ -61,6 +62,7 @@ export default function Cell({ data }: CellProps) {
 
   return (
     <article
+      id={createHeadingId(title)}
       className={`project-card ${featured ? 'project-card--featured' : ''} ${hasLink ? 'project-card--linked' : 'project-card--static'}`}
     >
       {hasLink ? (

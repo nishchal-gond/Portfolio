@@ -7,14 +7,25 @@
 .skill-groups {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1.75rem;
 }
 
-/* Individual category group */
+/* One group per row: the label holds a narrow left column and the tools
+   plus the projects that prove them take the rest. Stacks on phones. */
 .skill-group {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 0.5rem 2rem;
+  align-items: baseline;
   text-align: left;
-  padding-bottom: 0;
-  border-bottom: none;
+  padding-top: 1.25rem;
+  border-top: var(--rule) solid var(--color-border);
+}
+
+@media (max-width: 640px) {
+  .skill-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 /* Category names are annotation, matching every other label
@@ -26,13 +37,16 @@
   text-transform: uppercase;
   letter-spacing: var(--tracking-label);
   color: var(--color-fg-light);
-  margin-bottom: 0.875rem;
+  margin: 0;
   padding-bottom: 0;
   border-bottom: none;
   display: block;
 }
 
 .skill-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
@@ -71,8 +85,12 @@
   background: var(--color-surface-subtle);
 }
 
-.skill-tag-name {
-  white-space: nowrap;
+/* The evidence line: where these tools were actually used. */
+.skill-group-proof {
+  margin: 0.875rem 0 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  color: var(--color-fg-light);
 }
 
 /* Tech tags — squared, quiet, mono. */
@@ -95,18 +113,4 @@
 .project-card--linked:focus-within .tech-tag {
   color: var(--color-fg);
   border-color: var(--color-border-alt);
-}
-
-/* Size variations — weight, not scale. */
-.skill-tag--lg {
-  font-weight: var(--font-weight-medium);
-  color: var(--color-fg-bold);
-}
-
-.skill-tag--md {
-  font-weight: var(--font-weight-normal);
-}
-
-.skill-tag--sm {
-  color: var(--color-fg-light);
 }

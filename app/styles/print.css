@@ -199,17 +199,6 @@
     page-break-after: avoid;
   }
 
-  /* Filter controls do nothing on paper, and every skill prints regardless
-     of what is selected on screen — the groups stay in the DOM precisely so
-     this override can reach them. */
-  .skill-button-container {
-    display: none;
-  }
-
-  .skill-group[hidden] {
-    display: block !important;
-  }
-
   .skill-tag,
   .tech-tag {
     border-color: rgba(0, 0, 0, 0.35);
