@@ -46,7 +46,8 @@
 
 /* Voiceprint — the one flourish on the page. Bar heights come from the
    letters of the name (src/lib/voiceprint.ts); it sweeps in once, left to
-   right like a call connecting, then holds still. */
+   right like a call connecting, then holds still. Hovering replays it
+   (src/components/Template/Voiceprint.tsx). */
 .hero-voiceprint {
   display: flex;
   align-items: center;
