@@ -1,11 +1,15 @@
 const footer: { title: string; href: string }[] = [
   {
-    title: "Blog",
-    href: "https://nishchalgond.com",
+    title: "About",
+    href: "/about",
   },
   {
-    title: "Newsletter",
-    href: "https://nishchalgond.com",
+    title: "Projects",
+    href: "/#projects",
+  },
+  {
+    title: "Contact",
+    href: "/#contact",
   },
 ];
 

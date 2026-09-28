@@ -1,8 +1,7 @@
 import AceTernityLogo from "@/components/logos/aceternity";
-import SlideShow from "@/components/slide-show";
 import { Button } from "@/components/ui/button";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
-import { ArrowDownUpIcon, ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
+import { TypographyP } from "@/components/ui/typography";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -44,32 +43,33 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { TbBrandFramerMotion } from "react-icons/tb";
-import css from "styled-jsx/css";
 const BASE_PATH = "/assets/projects-screenshots";
 
-const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
+const ProjectsLinks = ({ live, repo }: { live?: string; repo?: string }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-start gap-3 my-3 mb-8">
-      <Link
-        className="font-mono underline flex gap-2"
-        rel="noopener"
-        target="_new"
-        href={live}
-      >
-        <Button variant={"default"} size={"sm"}>
-          Visit Website
-          <ArrowUpRight className="ml-3 w-5 h-5" />
-        </Button>
-      </Link>
+      {live && (
+        <Link
+          className="font-mono underline flex gap-2"
+          rel="noopener noreferrer"
+          target="_blank"
+          href={live}
+        >
+          <Button variant={"default"} size={"sm"}>
+            Visit Website
+            <ArrowUpRight className="ml-3 w-5 h-5" />
+          </Button>
+        </Link>
+      )}
       {repo && (
         <Link
           className="font-mono underline flex gap-2"
-          rel="noopener"
-          target="_new"
+          rel="noopener noreferrer"
+          target="_blank"
           href={repo}
         >
           <Button variant={"default"} size={"sm"}>
-            Github
+            GitHub
             <ArrowUpRight className="ml-3 w-5 h-5" />
           </Button>
         </Link>
@@ -250,7 +250,7 @@ const PROJECT_SKILLS = {
     title: "OpenAI",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" />,
+    icon: <Image src="/assets/icons/openai-svgrepo-com_white.svg" alt="OpenAI" width={24} height={24} className="w-full h-full" />,
   },
   netlify: {
     title: "Netlify",
@@ -286,7 +286,7 @@ const PROJECT_SKILLS = {
     title: "Java",
     bg: "black",
     fg: "white",
-    icon: <img src="assets/icons/icons8-java.svg" alt="Java" />,
+    icon: <Image src="/assets/icons/icons8-java.svg" alt="Java" width={24} height={24} className="w-full h-full" />,
   },
   cplusplus: {
     title: "C++",
@@ -358,7 +358,8 @@ export type Project = {
   skills: { frontend: Skill[]; backend: Skill[] };
   content: React.ReactNode | any;
   github?: string;
-  live: string;
+  /** Live demo URL. Leave undefined when there is no deployed demo. */
+  live?: string;
 };
 
 const projects: Project[] = [
@@ -372,7 +373,6 @@ const projects: Project[] = [
       frontend: [PROJECT_SKILLS.reactNative],
       backend: [PROJECT_SKILLS.firebase],
     },
-    live: "https://github.com/Rio2802/SmartRideManager",
     github: "https://github.com/Rio2802/SmartRideManager",
     get content() {
       return (
@@ -395,7 +395,6 @@ const projects: Project[] = [
       frontend: [],
       backend: [PROJECT_SKILLS.python],
     },
-    live: "https://github.com/Rio2802/J.A.D.E",
     github: "https://github.com/Rio2802/J.A.D.E",
     get content() {
       return (
@@ -418,8 +417,7 @@ const projects: Project[] = [
       frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.web3],
       backend: [],
     },
-    live: "https://github.com/Rio2802/DecentFile.git",
-    github: "https://github.com/Rio2802/DecentFile.git",
+    github: "https://github.com/Rio2802/DecentFile",
     get content() {
       return (
         <div>
@@ -441,7 +439,6 @@ const projects: Project[] = [
       frontend: [],
       backend: [PROJECT_SKILLS.python],
     },
-    live: "https://github.com/Rio2802/EDUBot",
     github: "https://github.com/Rio2802/EDUBot",
     get content() {
       return (
@@ -464,7 +461,6 @@ const projects: Project[] = [
       frontend: [],
       backend: [PROJECT_SKILLS.python, PROJECT_SKILLS.aws],
     },
-    live: "https://github.com/Rio2802/ChatWithPDF",
     github: "https://github.com/Rio2802/ChatWithPDF",
     get content() {
       return (
@@ -484,16 +480,25 @@ const projects: Project[] = [
     src: "/assets/projects-screenshots/portfolio/1.png",
     screenshots: ["/assets/projects-screenshots/portfolio/1.png"],
     skills: {
-      frontend: [PROJECT_SKILLS.html, PROJECT_SKILLS.css, PROJECT_SKILLS.js],
+      frontend: [
+        PROJECT_SKILLS.next,
+        PROJECT_SKILLS.ts,
+        PROJECT_SKILLS.tailwind,
+        PROJECT_SKILLS.gsap,
+        PROJECT_SKILLS.framerMotion,
+        PROJECT_SKILLS.spline,
+      ],
       backend: [],
     },
-    live: "https://github.com/Rio2802/Portfolio",
-    github: "https://github.com/Rio2802/Portfolio",
+    live: "https://nishchalgond.vercel.app",
+    github: "https://github.com/nishchal-gond/Portfolio",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono ">
-            My personal portfolio website
+            This site: Next.js, TypeScript and Tailwind, with a 3D Spline
+            keyboard of my skills, GSAP/Framer Motion animations and a contact
+            form powered by Resend.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
         </div>

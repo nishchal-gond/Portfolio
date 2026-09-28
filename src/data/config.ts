@@ -1,16 +1,19 @@
 const config = {
-  title: "Nishchal Gond | AI & Full-Stack Developer",
+  title: "Nishchal Gond | AI Specialist & Full-Stack Developer",
   description: {
-    long: "Explore the portfolio of Nishchal Gond, a Software Engineer and Computer Science student with a focus on AI and Full-Stack Development. Results-driven with a strong background in Python, React, and Cloud technologies. Experienced in increasing application performance and implementing broader web solutions.",
+    long: "Portfolio of Nishchal Gond, an AI Specialist who builds AI systems, automation and full-stack web applications. Works across Python, LLMs and RAG, React/Next.js, and cloud and DevOps tooling.",
     short:
-      "Discover the portfolio of Nishchal Gond, an AI & Full-Stack Developer enthusiast solving real-life problems.",
+      "Nishchal Gond builds AI systems, automation and full-stack web apps.",
   },
   keywords: [
     "Nishchal",
     "Nishchal Gond",
     "nishchalgond",
-    "Rio2802",
     "portfolio",
+    "AI Specialist",
+    "AI Automation",
+    "LLM",
+    "RAG",
     "Full-Stack Developer",
     "AI",
     "Cloud Technologies",
@@ -25,17 +28,16 @@ const config = {
   ],
   author: "Nishchal Gond",
   email: "ngond49@gmail.com",
-  site: "https://nishchalgond.com",
-
-  get ogImg() {
-    return this.site + "/assets/seo/og-image.png";
-  },
+  site: "https://nishchalgond.vercel.app",
+  // Replace with a direct PDF (e.g. "/resume.pdf" in public/) when available.
+  resume:
+    "https://drive.google.com/drive/folders/1z3_9i19gtTWo0o31veBASM2lnQtoPVuN?usp=drive_link",
   social: {
     twitter: "https://x.com/ngond49",
-    linkedin: "https://www.linkedin.com/in/nishchal-g-741a64107/",
+    linkedin: "https://www.linkedin.com/in/nishchal-gond/",
     instagram: "https://www.instagram.com/rio.zen7/",
     facebook: "https://www.facebook.com/nishchal.gond",
-    github: "https://github.com/Rio2802",
+    github: "https://github.com/nishchal-gond",
   },
 };
 export { config };

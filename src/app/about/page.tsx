@@ -13,56 +13,45 @@ import {
   FaLinkedin,
   FaLinux,
   FaNodeJs,
-  FaPhone,
   FaReact,
   FaVuejs,
   FaYarn,
 } from "react-icons/fa6";
 import {
   RiFirebaseFill,
-  RiJavascriptFill,
-  RiNextjsFill,
   RiTailwindCssFill,
 } from "react-icons/ri";
 import {
   SiExpress,
   SiJavascript,
   SiKubuntu,
-  SiPm2,
   SiPrettier,
   SiTypescript,
   SiVercel,
   SiVisualstudiocode,
 } from "react-icons/si";
-import { VscCode } from "react-icons/vsc";
 
-// @ts-ignore
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { TbTerminal2 } from "react-icons/tb";
+import { config } from "@/data/config";
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "ngond49@gmail.com",
-    href: "mailto:ngond49@gmail.com",
+    content: config.email,
+    href: `mailto:${config.email}`,
     icon: <FaEnvelope height={"50px"} />,
   },
   {
-    name: "Phone",
-    content: "+91-9535266172",
-    href: "tel:+919535266172",
-    icon: <FaPhone height={"50px"} />,
-  },
-  {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/nishchal-g-741a64107/",
-    content: "nishchal-g-741a64107",
+    href: config.social.linkedin,
+    content: "nishchal-gond",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/Rio2802",
-    content: "Rio2802",
+    href: config.social.github,
+    content: "nishchal-gond",
     icon: <FaGithub height={"50px"} />,
   },
 ];
@@ -82,146 +71,145 @@ const TOOLS = [
   },
   {
     name: "HTML",
-    content: "Next.js is a React framework for production",
+    content: "The markup language that structures every web page",
     icon: <FaHtml5 size={"50px"} color="#e34c26" />,
     color: "#e34c26",
   },
   {
     name: "CSS",
-    content: "Next.js is a React framework for production",
+    content: "Stylesheet language for layout, color and typography on the web",
     icon: <FaCss3 size={"50px"} color="#563d7c" />,
     color: "#563d7c",
   },
   {
     name: "Nodejs",
-    content: "Next.js is a React framework for production",
+    content: "JavaScript runtime for building fast, scalable server-side apps",
     icon: <FaNodeJs size={"50px"} color="#6cc24a" />,
     color: "#6cc24a",
   },
   {
     name: "React.js",
-    content: "Next.js is a React framework for production",
+    content: "Component-based library for building interactive user interfaces",
     icon: <FaReact size={"50px"} color="#61dafb" />,
     color: "#61dafb",
   },
   {
     name: "Docker",
-    content: "Next.js is a React framework for production",
+    content: "Packages apps and their dependencies into portable containers",
     icon: <FaDocker size={"50px"} color="#2496ed" />,
     color: "#2496ed",
   },
   {
     name: "NginX",
-    content: "Next.js is a React framework for production",
+    content: "High-performance web server, reverse proxy and load balancer",
     icon: <DiNginx size={"50px"} color="#008000" />,
     color: "#008000",
   },
   {
     name: "Vue.js",
-    content: "Next.js is a React framework for production",
+    content: "Progressive framework for building approachable web UIs",
     icon: <FaVuejs size={"50px"} color="#41b883" />,
     color: "#41b883",
   },
   {
     name: "Express.js",
-    content: "Next.js is a React framework for production",
+    content: "Minimal Node.js framework for APIs and web servers",
     icon: <SiExpress size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "PostgreSQL",
-    content: "Next.js is a React framework for production",
+    content: "Powerful open-source relational database",
     icon: <DiPostgresql size={"50px"} color="#336791" />,
     color: "#336791",
   },
   {
     name: "MongoDB",
-    content: "Next.js is a React framework for production",
+    content: "Document database for flexible, JSON-like data",
     icon: <DiMongodb size={"50px"} color="#4db33d" />,
     color: "#4db33d",
   },
   {
     name: "Tailwind CSS",
-    content: "Next.js is a React framework for production",
+    content: "Utility-first CSS framework for rapid UI development",
     icon: <RiTailwindCssFill size={"50px"} color="#06b6d4" />,
     color: "#06b6d4",
   },
   {
     name: "Firebase",
-    content: "Next.js is a React framework for production",
+    content: "Google's backend platform for auth, database and hosting",
     icon: <RiFirebaseFill size={"50px"} color="#FFCA28" />,
     color: "#FFCA28",
   },
   {
     name: "Git",
-    content: "Next.js is a React framework for production",
+    content: "Distributed version control for tracking code changes",
     icon: <FaGit size={"50px"} color="#f05032" />,
     color: "#f05032",
   },
   {
     name: "GitHub",
-    content: "Next.js is a React framework for production",
+    content: "Code hosting, collaboration and CI/CD with GitHub Actions",
     icon: <FaGithub size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "VS Code",
-    content: "Next.js is a React framework for production",
+    content: "Lightweight, extensible code editor",
     icon: <SiVisualstudiocode size={"50px"} color="#007acc" />,
     color: "#007acc",
   },
   {
     name: "VIM",
-    content: "Next.js is a React framework for production",
+    content: "Keyboard-driven text editor for fast editing",
     icon: <DiVim size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "Prettier",
-    content: "Next.js is a React framework for production",
+    content: "Opinionated code formatter for consistent style",
     icon: <SiPrettier size={"50px"} color="#f7b93c" />,
     color: "#f7b93c",
   },
   {
     name: "NPM",
-    content: "Next.js is a React framework for production",
+    content: "Package manager and registry for JavaScript",
     icon: <DiNpm size={"50px"} color="#CB3837" />,
     color: "#CB3837",
   },
   {
     name: "Yarn",
-    content: "Next.js is a React framework for production",
+    content: "Fast, reliable JavaScript package manager",
     icon: <FaYarn size={"50px"} color="#2C8EBB" />,
     color: "#2C8EBB",
   },
   {
     name: "Vercel",
-    content: "Next.js is a React framework for production",
+    content: "Platform for deploying frontend and serverless apps",
     icon: <SiVercel size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "Linux",
-    content: "Next.js is a React framework for production",
+    content: "Open-source operating system that powers most servers",
     icon: <FaLinux size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "Kubuntu",
-    content: "Next.js is a React framework for production",
-    // give me correct color for  kubuntu
+    content: "Ubuntu flavour with the KDE Plasma desktop",
     icon: <SiKubuntu size={"50px"} color="#0077C4" />,
     color: "#000000",
   },
   {
     name: "Terminal",
-    content: "Next.js is a React framework for production",
+    content: "Command line for scripting, automation and ops work",
     icon: <TbTerminal2 size={"50px"} color="#fff" />,
     color: "#000000",
   },
   {
     name: "AWS",
-    content: "Next.js is a React framework for production",
+    content: "Amazon's cloud platform for compute, storage and AI services",
     icon: <FaAws size={"50px"} color="#3f51b5" />,
     color: "#000000",
   },
@@ -246,7 +234,7 @@ function Page() {
               <div className="flex justify-center items-center lg:w-full lg:aspect-square bg-zinc-800 rounded-xl lg:mb-5">
                 <Image
                   className="rounded-full p-4 lg:p-10 w-[100px] md:w-[150px] lg:w-[200px] aspect-square  bg-zinc-800"
-                  alt="me"
+                  alt="Nishchal Gond"
                   src="/assets/me.jpg"
                   width={200}
                   height={200}
@@ -255,7 +243,7 @@ function Page() {
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
                 <p className="text-center text-xl">Nishchal Gond</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                  Web Developer
+                  AI Specialist
                 </div>
               </div>
             </div>
@@ -289,15 +277,17 @@ function Page() {
           >
             <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
             <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Nishchal Gond, a Comp. Sci. Engineer with 1.5 year experience in Devlopment, DevOps and
-              Database management with hands-on experience in deploying & automating workflows, and
-              collaborating with foreign clients. Strong analytical skills,effective communication,
-              and a team-oriented approach to driving process improvements and delivering results.
+              Hey there! I&apos;m Nishchal Gond, an AI Specialist who designs and
+              ships AI systems and automation. I work end to end: LLM and RAG
+              pipelines in Python, the full-stack web apps that put them in
+              front of users, and the cloud and DevOps tooling that keeps them
+              running. I&apos;ve worked with international clients, and I care
+              about clear communication and results you can measure.
             </p>
             <p className="mb-10">
-              When I&apos;m not coding, you can find me [Your
-              Interests/Hobbies], exploring new technologies, or sipping coffee
-              while brainstorming my next project.
+              When I&apos;m not building, you&apos;ll find me exploring new
+              AI tools and research, or sipping coffee while brainstorming my
+              next project.
             </p>
             <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
             <div className="mb-5">
@@ -317,13 +307,15 @@ function Page() {
                     easing: "cubic-bezier(0.25, 1, 0.5, 1)",
                     arrows: false,
                   }}
-                  aria-label="My Favorite Images"
+                  aria-label="Tools I use"
                 >
-                  {TOOLS.reverse().map((tool) => (
+                  {[...TOOLS].reverse().map((tool) => (
                     <SplideSlide key={tool.name}>
                       <div
                         key={tool.name}
                         className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
+                        title={`${tool.name}: ${tool.content}`}
+                        aria-label={tool.name}
                       >
                         {tool.icon}
                       </div>
@@ -332,34 +324,6 @@ function Page() {
                 </Splide>
               )}
             </div>
-            {/* <div className="">
-              <Splide
-                options={{
-                  type: "loop",
-                  interval: 2000,
-                  autoplay: true,
-                  pagination: false,
-                  speed: 3000,
-                  perPage: 5,
-                  perMove: 1,
-                  rewind: true,
-                  easing: "cubic-bezier(0.25, 1, 0.5, 1)",
-                  arrows: false,
-                }}
-                aria-label="My Favorite Images"
-              >
-                {TOOLS.map((tool) => (
-                  <SplideSlide key={tool.name}>
-                    <div
-                      key={tool.name}
-                      className="w-fit p-2 border-[.5px] border-zinc-600 rounded-md"
-                    >
-                      {tool.icon}
-                    </div>
-                  </SplideSlide>
-                ))}
-              </Splide>
-            </div> */}
           </div>
         </main>
       </div>

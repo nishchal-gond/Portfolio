@@ -6,7 +6,7 @@ import { opacity } from "../../anim";
 import { cn } from "@/lib/utils";
 
 interface IndexProps {
-  src: string;
+  src?: string;
   isActive: boolean;
 }
 
@@ -18,14 +18,15 @@ const Index: React.FC<IndexProps> = ({ src, isActive }) => {
       animate={isActive ? "open" : "closed"}
       className={styles.imageContainer}
     >
+      {src && (
       <Image
         src={src}
         width={400}
         height={400}
         className="my-32 w-full h-auto object-cover"
-        alt={"Image"}
-        // priority={true}
+        alt=""
       />
+      )}
     </motion.div>
   );
 };
