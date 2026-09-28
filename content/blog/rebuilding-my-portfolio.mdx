@@ -1,0 +1,42 @@
+---
+title: "Rebuilding my portfolio: security, speed and an AI assistant"
+date: 2026-09-28
+summary: "What I fixed and added when I overhauled this site: a leaked API key, a crash I didn't know about, accessibility fallbacks, case studies and a grounded AI assistant."
+tags: [nextjs, ai, accessibility]
+draft: true
+---
+
+{/* DRAFT: written as a starting point. Edit it into your own words, then set draft: false. */}
+
+My portfolio started life as a fork of an open-source template: a Next.js site with a 3D keyboard
+whose keycaps are my skills. It looked great, but a proper review turned up a lot to fix.
+
+## Security first
+
+- **A real API key was committed** in `.env.example`. I rotated it and replaced it with a placeholder.
+  Deleting it from the file isn't enough: once a secret is public, rotating it is the only fix.
+- The contact endpoint logged every message and returned raw error objects. It now validates input,
+  returns generic errors, has a honeypot field for bots and a simple per-IP rate limit.
+
+## A crash I didn't know about
+
+The 3D scene downloads a WebAssembly file from a CDN. If that request fails (ad-blockers, strict
+corporate networks), the Spline component throws during render, and the **whole page** showed
+"Application error". An error boundary around the scene fixed it: now the site just renders without
+the keyboard.
+
+## Accessibility and performance
+
+- If you've asked your OS to reduce motion, the 3D keyboard, particles, custom cursor and smooth
+  scrolling switch off, and the skills show as a normal grid instead.
+- The home page is now a Server Component, with client code only where it's needed.
+- Screen readers get a text list of skills instead of a canvas they can't read.
+
+## New things
+
+- **Case studies** at `/projects/[slug]`: the problem, the approach and the trade-offs.
+- **This blog**, written in MDX.
+- **An AI assistant** that answers questions about my work. It's grounded only on the content of this
+  site, so it says "I don't know" rather than inventing things.
+
+The code is on [GitHub](https://github.com/nishchal-gond/Portfolio).

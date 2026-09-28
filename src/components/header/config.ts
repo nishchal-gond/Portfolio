@@ -21,6 +21,10 @@ const links: Link[] = [
     thumbnail: "/assets/projects-screenshots/chat-with-pdf/1.png",
   },
   {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
     title: "Contact",
     href: "/#contact",
   },

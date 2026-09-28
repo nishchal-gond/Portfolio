@@ -13,9 +13,11 @@ import OnlineUsers from "../realtime/online-users";
 
 interface HeaderProps {
   loader?: boolean;
+  /** Show the Blog link (only when there are published posts). */
+  showBlog?: boolean;
 }
 
-const Header = ({ loader }: HeaderProps) => {
+const Header = ({ loader, showBlog = false }: HeaderProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   return (
     <motion.header
@@ -88,7 +90,7 @@ const Header = ({ loader }: HeaderProps) => {
         className={styles.background}
       ></motion.div>
       <AnimatePresence mode="wait">
-        {isActive && <Nav setIsActive={setIsActive} />}
+        {isActive && <Nav setIsActive={setIsActive} showBlog={showBlog} />}
       </AnimatePresence>
     </motion.header>
   );
