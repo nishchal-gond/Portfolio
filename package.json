@@ -25,7 +25,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "devtools-detector": "^2.0.22",
-    "embla-carousel-react": "^8.1.8",
     "framer-motion": "^11.3.17",
     "gsap": "^3.12.5",
     "lenis": "^1.1.6",
@@ -40,14 +39,12 @@
     "socket.io-client": "^4.7.5",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.167.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.167.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",

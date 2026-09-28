@@ -49,7 +49,6 @@ const NyanCat = () => {
           <AnimatedDiv
             key={div.id}
             id={div.id}
-            onClick={() => console.log("clicked")}
             onCompleted={() => {
               setDivs(divs.filter((d) => d.id !== div.id));
             }}
@@ -61,11 +60,9 @@ const NyanCat = () => {
 
 const AnimatedDiv = ({
   id,
-  onClick,
   onCompleted,
 }: {
   id: string;
-  onClick: () => void;
   onCompleted: () => void;
 }) => {
   const randY = getRandomHeight();
@@ -80,17 +77,12 @@ const AnimatedDiv = ({
     });
   }, [controls]);
 
-  const handlePause = () => {
-    onClick();
-  };
-
   return (
     <motion.div
       key={id}
       initial={{ x: "-20vw", y: randY }}
       animate={controls}
       onAnimationComplete={onCompleted}
-      onClick={handlePause}
     >
       <Image
         src="/assets/nyan-cat.gif"

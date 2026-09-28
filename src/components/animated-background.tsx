@@ -10,6 +10,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePreloader } from "./preloader";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
+import ErrorBoundary from "./error-boundary";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -287,7 +288,7 @@ const AnimatedBackground = () => {
   //reveal keycaps
   useEffect(() => {
     const hash = activeSection === "hero" ? "#" : `#${activeSection}`;
-    router.push("/" + hash, { scroll: false });
+    router.replace("/" + hash, { scroll: false });
     if (!splineApp || isLoading || keyboardRevealed) return;
     revealKeyCaps();
   }, [splineApp, isLoading, activeSection]);
@@ -299,7 +300,6 @@ const AnimatedBackground = () => {
     await sleep(400);
     kbd.visible = true;
     setKeyboardRevealed(true);
-    console.log(activeSection);
     gsap.fromTo(
       kbd?.scale,
       { x: 0.01, y: 0.01, z: 0.01 },
@@ -562,7 +562,8 @@ const AnimatedBackground = () => {
   };
   return (
     <>
-      <Suspense fallback={<div>Loading...</div>}>
+      <ErrorBoundary>
+      <Suspense fallback={null}>
         <Spline
           ref={splineContainer}
           onLoad={(app: Application) => {
@@ -572,6 +573,7 @@ const AnimatedBackground = () => {
           scene="/assets/skills-keyboard.spline"
         />
       </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

@@ -37,6 +37,8 @@ Copy `.env.example` to `.env.local` and set:
 | --- | --- |
 | `RESEND_API_KEY` | API key from [resend.com](https://resend.com) — used by `/api/send` |
 | `EMAIL` | Destination address that contact-form submissions are delivered to |
+| `NEXT_PUBLIC_WS_URL` | *Optional.* Socket.IO server for live cursors/chat. Leave unset to disable the feature |
+| `UMAMI_DOMAIN`, `UMAMI_SITE_ID` | *Optional.* Umami analytics script URL and site ID. The script is only added when both are set |
 
 Without these the site still builds and renders; only the contact form fails.
 
@@ -53,7 +55,7 @@ Without these the site still builds and renders; only the contact form fails.
 
 ```
 src/
-├── app/            App Router routes: about, blog, contact, projects, api/send
+├── app/            App Router routes: about, contact, projects, api/send, sitemap, robots, OG image
 ├── components/     Reusable UI and section components
 ├── contexts/       React context providers
 ├── data/           Site content — config, constants, project entries

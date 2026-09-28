@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { BoxReveal } from "../reveal-animations";
 import { cn } from "@/lib/utils";
+import { SKILLS } from "@/data/constants";
 
 const SkillsSection = () => {
   return (
@@ -20,7 +21,12 @@ const SkillsSection = () => {
             </h2>
           </BoxReveal>
         </Link>
-
+        {/* The skills live on the 3D keyboard; give screen readers (and crawlers) a text version. */}
+        <ul className="sr-only" aria-label="Skills">
+          {Object.values(SKILLS).map((skill) => (
+            <li key={skill.name}>{skill.label}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );
