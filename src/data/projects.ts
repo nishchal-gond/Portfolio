@@ -13,7 +13,8 @@ const data: Project[] = [
   {
     title: 'AI Voice Calling Agents',
     subtitle: 'Outbound calls to US investors and owners',
-    desc: 'Voice agents that call back leads with per-lead variables, writing transcripts, summaries and sentiment back to the sheet. A Telnyx ↔ OpenAI Realtime media bridge in FastAPI cuts reply latency, with call windows and webhook logging.',
+    link: 'https://github.com/LuxProHub/lph-klaudia-voice',
+    desc: 'Voice agents that call back leads with per-lead variables, writing transcripts, summaries and sentiment back to the sheet. A Telnyx ↔ OpenAI Realtime media bridge in FastAPI cuts reply latency, with a G.711 pass-through mode that skips transcoding entirely. The bigger lever turned out to be server region: about 20–40 ms added per round trip from US East, against 450–550 ms from Dubai.',
     tech: [
       'Retell AI',
       'LiveKit',
@@ -27,8 +28,9 @@ const data: Project[] = [
   {
     title: 'Property Ledger',
     subtitle: 'Real estate data engine, 40M+ records',
-    desc: 'Field mapping across 1,700+ source files, owner/unit matching and de-duplication, loading 40M+ records into PostgreSQL. A React dashboard (search, ledger, batch explorer, analytics) lets non-technical staff upload raw files and get clean, deduplicated data.',
-    tech: ['Python', 'PostgreSQL', 'FastAPI', 'React'],
+    link: 'https://github.com/LuxProHub/prototype',
+    desc: 'Field mapping across 1,700+ source files, owner/unit matching and de-duplication across registers, loading 40M+ records into PostgreSQL. A React dashboard lets non-technical staff upload raw files and get clean data back. Enriching Property Type from portal data lifted coverage from 40% to 82%, and an audit found and fixed six silent data-corruption bugs, each now pinned by a regression test (155 tests, up from 38).',
+    tech: ['Python', 'pandas', 'PostgreSQL', 'FastAPI', 'React'],
     featured: true,
   },
   {
@@ -90,8 +92,8 @@ const data: Project[] = [
     title: 'LuxRestoreAI',
     subtitle: 'Watermark detection and image restoration',
     link: 'https://github.com/nishchal-gond/Lux-Property',
-    desc: 'A modular computer vision pipeline that finds watermarks and unwanted artifacts with open-vocabulary detection (Grounding DINO), builds precise masks and inpaints the region while preserving image quality.',
-    tech: ['Python', 'PyTorch', 'Grounding DINO', 'Docker'],
+    desc: 'A modular computer vision pipeline for property photos: open-vocabulary detection (GroundingDINO) finds watermarks and unwanted artifacts, SAM2 builds precise masks and LaMa inpaints the region while preserving image quality.',
+    tech: ['Python', 'PyTorch', 'GroundingDINO', 'SAM2', 'LaMa', 'Docker'],
   },
   {
     title: 'LPH Sales Display System',
@@ -106,6 +108,13 @@ const data: Project[] = [
     link: 'https://github.com/nishchal-gond/re-scraper',
     desc: 'A Chrome MV3 extension that walks multi-page search results, visits each listing, extracts structured fields and exports everything to Excel, CSV or JSON.',
     tech: ['Chrome MV3', 'JavaScript'],
+  },
+  {
+    title: 'LPH Campaign Sender',
+    subtitle: 'Property email campaigns from a Google Sheet',
+    link: 'https://github.com/LuxProHub/property-campaign-sender',
+    desc: 'Internal tool for property campaigns: paste the HTML email, point it at a Google Sheet of recipients, preview, send a test, then send. Postmark delivers one individual email per recipient over a broadcast stream.',
+    tech: ['Next.js', 'TypeScript', 'Postmark', 'Google Sheets'],
   },
   {
     title: 'BTB Academy Site',
