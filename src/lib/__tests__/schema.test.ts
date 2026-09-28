@@ -14,14 +14,7 @@ import {
   webPageNode,
   websiteNode,
 } from '@/lib/schema';
-import {
-  AUTHOR_NAME,
-  SHARE_IMAGE_DIMENSIONS,
-  SHARE_IMAGE_PATH,
-  SITE_IMAGE_DIMENSIONS,
-  SITE_IMAGE_PATH,
-  SITE_URL,
-} from '@/lib/utils';
+import { SITE_IMAGE_DIMENSIONS, SITE_IMAGE_PATH, SITE_URL } from '@/lib/utils';
 
 const START_OF_FRAME_MARKERS = new Set([
   0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf,
