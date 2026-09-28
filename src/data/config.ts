@@ -27,6 +27,12 @@ const config = {
     "Web Development",
   ],
   author: "Nishchal Gond",
+  role: "AI Specialist",
+  // Shown on the About page and used to ground the AI assistant.
+  bio: [
+    "Hey there! I'm Nishchal Gond, an AI Specialist who designs and ships AI systems and automation. I work end to end: LLM and RAG pipelines in Python, the full-stack web apps that put them in front of users, and the cloud and DevOps tooling that keeps them running. I've worked with international clients, and I care about clear communication and results you can measure.",
+    "When I'm not building, you'll find me exploring new AI tools and research, or sipping coffee while brainstorming my next project.",
+  ],
   email: "ngond49@gmail.com",
   site: "https://nishchalgond.vercel.app",
   // Replace with a direct PDF (e.g. "/resume.pdf" in public/) when available.

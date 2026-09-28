@@ -1,6 +1,7 @@
 import { EmailTemplate } from "@/components/email-template";
 import { Resend } from "resend";
 import { z } from "zod";
+import { createRateLimiter, getClientIp } from "@/lib/rate-limit";
 
 const Email = z.object({
   fullName: z.string().trim().min(2, "Full name is invalid!").max(100),
@@ -10,32 +11,10 @@ const Email = z.object({
   website: z.string().optional(),
 });
 
-// Best-effort in-memory rate limit (per serverless instance).
-// For a hard guarantee, swap this for Upstash Ratelimit / Vercel KV.
-const WINDOW_MS = 60 * 60 * 1000;
-const MAX_REQUESTS = 5;
-const hits = new Map<string, number[]>();
-
-function isRateLimited(ip: string) {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 1000) {
-    hits.forEach((times, key) => {
-      if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(key);
-    });
-  }
-  return recent.length > MAX_REQUESTS;
-}
+const isRateLimited = createRateLimiter({ max: 5, windowMs: 60 * 60 * 1000 });
 
 export async function POST(req: Request) {
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
-    req.headers.get("x-real-ip") ||
-    "unknown";
-
-  if (isRateLimited(ip)) {
+  if (isRateLimited(getClientIp(req))) {
     return Response.json(
       { error: "Too many messages. Please try again later." },
       { status: 429 }

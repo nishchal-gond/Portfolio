@@ -14,6 +14,9 @@ import EasterEggs from "@/components/easter-eggs";
 import { config } from "@/data/config";
 import SocketContextProvider from "@/contexts/socketio";
 import RemoteCursors from "@/components/realtime/remote-cursors";
+import MotionGate from "@/components/motion-gate";
+import { getPosts } from "@/lib/blog";
+import AskAI from "@/components/ask-ai";
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.site),
@@ -83,22 +86,27 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <Particles
-            className="fixed inset-0 -z-10 animate-fade-in"
-            quantity={100}
-          />
+          <MotionGate>
+            <Particles
+              className="fixed inset-0 -z-10 animate-fade-in"
+              quantity={100}
+            />
+          </MotionGate>
           <Preloader>
             <SocketContextProvider>
               <RemoteCursors />
               <TooltipProvider>
-                <Header />
+                <Header showBlog={getPosts().length > 0} />
                 {children}
                 <Footer />
               </TooltipProvider>
             </SocketContextProvider>
             <Toaster />
+            {process.env.ANTHROPIC_API_KEY && <AskAI />}
             <EasterEggs />
-            <ElasticCursor />
+            <MotionGate>
+              <ElasticCursor />
+            </MotionGate>
           </Preloader>
         </ThemeProvider>
       </body>

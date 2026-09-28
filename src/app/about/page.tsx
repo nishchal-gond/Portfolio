@@ -243,7 +243,7 @@ function Page() {
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
                 <p className="text-center text-xl">Nishchal Gond</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
-                  AI Specialist
+                  {config.role}
                 </div>
               </div>
             </div>
@@ -276,19 +276,11 @@ function Page() {
             style={{ backdropFilter: "blur(2px)" }}
           >
             <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
-            <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Nishchal Gond, an AI Specialist who designs and
-              ships AI systems and automation. I work end to end: LLM and RAG
-              pipelines in Python, the full-stack web apps that put them in
-              front of users, and the cloud and DevOps tooling that keeps them
-              running. I&apos;ve worked with international clients, and I care
-              about clear communication and results you can measure.
-            </p>
-            <p className="mb-10">
-              When I&apos;m not building, you&apos;ll find me exploring new
-              AI tools and research, or sipping coffee while brainstorming my
-              next project.
-            </p>
+            {config.bio.map((paragraph) => (
+              <p key={paragraph} className="mb-10">
+                {paragraph}
+              </p>
+            ))}
             <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
             <div className="mb-5">
               {!toolsLoaded ? (
