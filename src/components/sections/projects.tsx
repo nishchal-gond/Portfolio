@@ -13,6 +13,9 @@ import Link from "next/link";
 
 import SmoothScroll from "../smooth-scroll";
 import projects, { Project } from "@/data/projects";
+import { PROJECT_SKILLS } from "@/data/project-skills";
+import ProjectLinks from "../projects/project-links";
+import { TypographyP } from "../ui/typography";
 import { cn } from "@/lib/utils";
 
 const ProjectsSection = () => {
@@ -99,24 +102,29 @@ const ProjectContents = ({ project }: { project: Project }) => {
         {project.title}
       </h4>
       <div className="flex flex-col md:flex-row md:justify-evenly max-w-screen overflow-hidden md:overflow-visible">
-        <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
-          <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
-            Frontend
-          </p>
-          {project.skills.frontend?.length > 0 && (
-            <FloatingDock items={project.skills.frontend} />
-          )}
-        </div>
-        {project.skills.backend?.length > 0 && (
+        {project.skills.frontend.length > 0 && (
+          <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
+            <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
+              Frontend
+            </p>
+            <FloatingDock
+              items={project.skills.frontend.map((id) => PROJECT_SKILLS[id])}
+            />
+          </div>
+        )}
+        {project.skills.backend.length > 0 && (
           <div className="flex flex-row md:flex-col-reverse justify-center items-center gap-2 text-3xl mb-8">
             <p className="text-sm mt-1 text-neutral-600 dark:text-neutral-500">
               Backend
             </p>
-            <FloatingDock items={project.skills.backend} />
+            <FloatingDock
+              items={project.skills.backend.map((id) => PROJECT_SKILLS[id])}
+            />
           </div>
         )}
       </div>
-      {project.content}
+      <TypographyP className="font-mono">{project.summary}</TypographyP>
+      <ProjectLinks project={project} caseStudy />
     </>
   );
 };
