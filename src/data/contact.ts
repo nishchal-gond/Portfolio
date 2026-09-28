@@ -14,7 +14,7 @@ export interface ContactItem {
 
 const data: ContactItem[] = [
   {
-    link: 'https://www.linkedin.com/in/nishchal-g-741a64107/',
+    link: 'https://www.linkedin.com/in/nishchal-gond/',
     label: 'LinkedIn',
     icon: faLinkedinIn,
   },

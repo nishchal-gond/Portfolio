@@ -47,7 +47,8 @@ export default function ProjectsPage() {
         <header className="projects-header">
           <h1 className="page-title">Projects</h1>
           <p className="page-subtitle">
-            Production systems I&apos;ve designed and built
+            Production systems I&apos;ve designed and built. More on{' '}
+            <a href="https://github.com/nishchal-gond">GitHub</a>.
           </p>
         </header>
 

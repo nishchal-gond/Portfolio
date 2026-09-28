@@ -35,6 +35,7 @@ describe('createHeadingId', () => {
       ['How I Work', 'how-i-work'],
       ['Journey', 'journey'],
       ['What I Build With', 'what-i-build-with'],
+      ['Certifications', 'certifications'],
     ]);
   });
 });

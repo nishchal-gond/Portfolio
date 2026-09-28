@@ -68,6 +68,7 @@ const sectionVariants: Record<string, string> = {
   Journey: 'about-section--log',
   'How I Work': 'about-section--compact',
   'What I Build With': 'about-section--compact',
+  Certifications: 'about-section--compact',
 };
 
 function splitAboutMarkdown(markdown: string) {

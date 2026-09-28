@@ -48,6 +48,7 @@ describe('about data', () => {
       '# How I Work',
       '# Journey',
       '# What I Build With',
+      '# Certifications',
     ]);
   });
 });

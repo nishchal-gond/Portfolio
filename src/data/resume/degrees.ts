@@ -12,6 +12,12 @@ const degrees: Degree[] = [
     link: 'https://eastpoint.ac.in',
     year: 2025,
   },
+  {
+    school: 'MVJ College of Engineering, Bengaluru',
+    degree: 'Pre-University Course (PCMC)',
+    link: 'https://mvjce.edu.in',
+    year: 2021,
+  },
 ];
 
 export default degrees;

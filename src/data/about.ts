@@ -8,6 +8,8 @@ If you're building something where AI has to work reliably in production, not ju
 
 # How I Work
 
+The model is one component, not the product. What makes a system reliable is everything around it: clean data, retrieval, validation, permissions and observability.
+
 - I own the full delivery cycle: requirements, architecture, build, release and support.
 - I design unattended jobs to fail safely, with logging, retries, alerting, test modes and audit logs.
 - I validate LLM output before it touches anything real. JSON is checked before an email is sent.
@@ -16,7 +18,7 @@ If you're building something where AI has to work reliably in production, not ju
 # Journey
 
 - In 2023, I started building AI-assisted client platforms for teams in Dubai and India, using LLMs, RAG pipelines and vector search on AWS.
-- In 2025, I built a trading academy platform end to end for BTB Academy, then graduated in Computer Science & Engineering.
+- In 2025, I built a trading academy platform end to end for Blackstar Traders Bureau (BTB), then graduated in Computer Science & Engineering.
 - In 2025, I joined Anvaaya Healthtech as a Software Engineer in AI/ML, shipping an AI chatbot and leading an architecture migration.
 - In 2026, I joined Luxury Properties Hub in Dubai as its AI Specialist.
 
@@ -27,4 +29,12 @@ If you're building something where AI has to work reliably in production, not ju
 - Automation: n8n, webhooks, Google Sheets API, Microsoft Graph, Brevo, Chrome extensions (MV3).
 - Data: PostgreSQL, MongoDB, FAISS, Python ETL with pandas.
 - Stack: Python, TypeScript, FastAPI, React, Node.js, Docker, AWS.
+
+# Certifications
+
+- AWS Academy Graduate: Cloud Architecting.
+- Getting Started with AI and Machine Learning.
+- Reinforcement Learning Foundations.
+- Building Computer Vision Applications with Python.
+- Deep Learning Foundations: Natural Language Processing with TensorFlow.
 `;
