@@ -73,9 +73,11 @@ const data: Project[] = [
     tech: ['Chrome Extension', 'n8n', 'AI Image Models', 'Google Drive API'],
   },
   {
-    title: 'Custom CRM Platform',
-    subtitle: 'Full-stack web application',
-    desc: 'A CRM centralising leads, client records and follow-up reminders, replacing manual spreadsheet tracking.',
+    title: 'Trading Academy CRM',
+    subtitle: 'Operations platform for BTB',
+    link: 'https://github.com/nishchal-gond/BTBCrm',
+    desc: 'A CRM centralising leads, client records and follow-up reminders, replacing manual spreadsheet tracking. Built on one rule: one person, one row, one permanent client ID. Lead and student are statuses, conversion is an update, and every record tracks who created, owns, mentors and converted it.',
+    tech: ['TypeScript', 'Python'],
   },
   {
     title: 'OREOCHAIN',
@@ -104,13 +106,6 @@ const data: Project[] = [
     link: 'https://github.com/nishchal-gond/re-scraper',
     desc: 'A Chrome MV3 extension that walks multi-page search results, visits each listing, extracts structured fields and exports everything to Excel, CSV or JSON.',
     tech: ['Chrome MV3', 'JavaScript'],
-  },
-  {
-    title: 'Trading Academy CRM',
-    subtitle: 'Operations platform for BTB',
-    link: 'https://github.com/nishchal-gond/BTBCrm',
-    desc: 'CRM for a Dubai trading academy built on one rule: one person, one row, one permanent client ID. Lead and student are statuses, conversion is an update, and every record tracks who created, owns, mentors and converted it.',
-    tech: ['TypeScript', 'Python'],
   },
   {
     title: 'BTB Academy Site',
