@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rio2802/Portfolio.git"
+    "url": "https://github.com/nishchal-gond/Portfolio.git"
   },
   "engines": {
     "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
