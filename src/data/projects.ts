@@ -46,6 +46,21 @@ const data: Project[] = [
     featured: true,
   },
   {
+    title: 'JUNO',
+    subtitle: 'Always-on voice assistant for Windows 11 · private repo',
+    desc: 'Runs entirely on the laptop: openWakeWord and GPU faster-whisper to listen, three answer tiers (instant reflexes, a local qwen2.5 model, Claude Code for real tool work), a cloned voice via Coqui XTTS-v2 with Piper fallback, and a three.js particle HUD in a click-through Electron overlay. Laptop control is exposed to Claude as an MCP server.',
+    tech: [
+      'Python',
+      'faster-whisper',
+      'XTTS-v2',
+      'qwen2.5',
+      'Claude Code',
+      'MCP',
+      'Electron',
+      'three.js',
+    ],
+  },
+  {
     title: 'WhatsApp Web Chrome Extensions',
     subtitle: 'Property Intelligence and Group Cleanup',
     desc: 'Property Intelligence classifies incoming developer brochures, price lists and job applications into a factsheet queue. Group Cleanup handles bulk offboarding across 100+ groups with identity matching, admin safeguards, live verification and an audit log.',
