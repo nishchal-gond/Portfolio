@@ -1,0 +1,44 @@
+/* ========================================
+   ICON COMPONENTS
+   Social icons and icon lists
+   ======================================== */
+
+@layer components {
+  /* Icon list — wraps, because seven 44px targets plus gaps is 400px and
+     will not fit a 320px viewport on one line. */
+  .icons {
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0 0 2em;
+    padding: 0;
+  }
+
+  .icons li {
+    display: block;
+    padding: 0;
+  }
+
+  .icons li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: var(--radius-sm);
+    color: var(--color-fg-light);
+    text-decoration: none;
+    background-image: none;
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .icons li a:hover {
+    background-color: var(--color-surface-hover);
+    color: var(--color-fg-bold);
+  }
+}

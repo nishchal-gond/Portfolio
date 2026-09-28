@@ -1,0 +1,175 @@
+/* ========================================
+   RESUME PAGE STYLES
+   ======================================== */
+
+/* Section headers sit left, under a heavy rule — the same device
+   that opens the readout strip on the home page. */
+.resume-page .education .title,
+.resume-page .experience .title,
+.resume-page .skills .title,
+.resume-page .courses .title,
+.resume-page .references .title {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.resume-page .education .title h2,
+.resume-page .experience .title h2,
+.resume-page .skills .title h2,
+.resume-page .courses .title h2,
+.resume-page .references .title h2 {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+  display: block;
+  margin: 0;
+  padding-top: 0.875rem;
+  border-top: var(--rule) solid var(--color-fg-bold);
+}
+
+.resume-page .skills {
+  margin-top: 2em;
+}
+
+.resume-page .skills .title p {
+  font-size: var(--text-md);
+}
+
+.resume-page .courses {
+  padding-top: 1em;
+}
+
+.resume-page .courses .course-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 735px) {
+  .resume-page .courses .course-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.resume-page .references {
+  margin: var(--spacing-8) 0;
+}
+
+/* Resume page specific */
+.resume-page {
+  max-width: var(--measure-page);
+  margin: 0 auto;
+}
+
+.resume-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.resume-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-display);
+  margin-bottom: 1.25rem;
+  color: var(--color-fg-bold);
+}
+
+.resume-summary {
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+  color: var(--color-fg);
+  max-width: 62ch;
+  margin: 0;
+}
+
+/* Section index — a row of mono labels on a rule, not a pill bar. */
+.resume-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* Row gap matters: the links wrap below ~375px, and the active indicator
+     used to be positioned relative to the bar rather than the link, so it
+     drew straight through the second row. */
+  gap: 0.5rem 1.75rem;
+  margin-top: var(--spacing-8);
+  margin-bottom: var(--spacing-4);
+  position: sticky;
+  top: var(--header-height);
+  z-index: var(--z-sticky);
+  background: var(--color-bg-alt);
+  padding: 0.75rem 0;
+  border-top: var(--rule) solid var(--color-border);
+  border-bottom: var(--rule) solid var(--color-border);
+}
+
+@media (max-width: 735px) {
+  .resume-nav {
+    top: var(--header-height-mobile);
+    gap: 0 1rem;
+  }
+}
+
+.resume-nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+  background: transparent;
+  background-image: none;
+  border: none;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.resume-nav-link:hover {
+  color: var(--color-fg-bold);
+  background: transparent;
+}
+
+.resume-nav-link.active {
+  color: var(--color-accent);
+}
+
+/* Anchored to the link itself, so a wrapped row underlines its own item. */
+.resume-nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--rule-strong);
+  background: var(--color-accent);
+}
+
+.resume-nav-link:focus-visible {
+  outline: var(--rule-strong) solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.resume-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-top: 2.5rem;
+}
+
+.resume-section {
+  scroll-margin-top: calc(var(--header-height) + var(--scroll-offset-resume));
+}
+
+/* Printed resumes need contact details, which live in the footer on screen.
+   Shown only by print.css. */
+.resume-print-contact {
+  display: none;
+}

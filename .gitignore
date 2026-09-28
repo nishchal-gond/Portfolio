@@ -1,45 +1,58 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+yarn.lock
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Environment
+.env
 .env*.local
 
-# vercel
-.vercel
+# Coverage
+coverage/
+lib-cov/
 
-# typescript
-*.tsbuildinfo
+# Build outputs
+build/
+dist/
+tmp/
+out/
+public/dist/
+
+# Next.js
+.next/
+.swc/
+.turbo/
 next-env.d.ts
+tsconfig.tsbuildinfo
 
-public/assets/projects-screenshots/codingducks/
-public/assets/projects-screenshots/couponluxury
-public/assets/projects-screenshots/ghostchat
-public/assets/projects-screenshots/jra
-public/assets/projects-screenshots/the-booking-desk
-.env
+# Compiled binary addons
+build/Release/
 
-updated-readme.md
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.grunt/
+.lock-wscript
+nohup.out
+
+# Vercel
+.vercel

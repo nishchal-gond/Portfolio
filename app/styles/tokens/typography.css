@@ -1,0 +1,66 @@
+/* ========================================
+   TYPOGRAPHY TOKENS
+   Three voices:
+     display — Bricolage Grotesque, names and headings
+     body    — Newsreader, prose and reading
+     mono    — JetBrains Mono, data, labels, measurements
+   ======================================== */
+
+@theme {
+  /* ===================
+     FONT FAMILIES
+     =================== */
+  --font-display: var(--font-bricolage), 'Helvetica Neue', sans-serif;
+  --font-body: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', monospace;
+
+  /* ===================
+     FONT WEIGHTS
+     All three families are variable, so every step below
+     renders as a real weight rather than a synthesized one.
+     =================== */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* ===================
+     FONT SIZES (rem — absolute, so nesting never compounds)
+     =================== */
+  /* 11px is fine for genuinely secondary annotation, but it is too small for
+     anything you have to hit or read at a glance, so interactive elements
+     use --text-ui instead. */
+  --text-2xs: 0.6875rem; /* 11px — secondary annotation only */
+  --text-ui: 0.8125rem; /* 13px — nav, buttons, filters, section indexes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-md: 1.125rem; /* 18px */
+  --text-lg: 1.375rem; /* 22px */
+  --text-xl: 1.75rem; /* 28px */
+  --text-2xl: 2.25rem; /* 36px */
+  --text-3xl: 3rem; /* 48px */
+  --text-display: clamp(3rem, 9vw, 5.75rem);
+}
+
+@theme inline {
+  /* ===================
+     LETTER SPACING
+     Display is set tight; mono labels are set wide so they
+     read as instrument annotation rather than as copy.
+     =================== */
+  --tracking-display: -0.035em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-label: 0.14em;
+
+  /* ===================
+     LINE HEIGHTS
+     =================== */
+  --leading-display: 0.92;
+  --leading-tight: 1.15;
+  --leading-snug: 1.4;
+  --leading-normal: 1.65;
+}

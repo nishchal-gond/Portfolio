@@ -1,0 +1,28 @@
+/* ========================================
+   MOTION TOKENS
+   Durations, easings, and interaction values
+   ======================================== */
+
+@theme inline {
+  /* ===================
+     DURATIONS
+     =================== */
+  --duration-instant: 0.15s;
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+  --duration-menu: 0.4s;
+
+  /* ===================
+     EASING FUNCTIONS
+     =================== */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-menu: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ===================
+     Z-INDEX SCALE
+     =================== */
+  --z-sticky: 100; /* Sticky elements below header (e.g., resume nav) */
+  --z-header: 10000;
+  --z-overlay: 10001;
+  --z-menu: 10002;
+}

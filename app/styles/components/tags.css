@@ -1,0 +1,112 @@
+/* ========================================
+   TAG COMPONENTS
+   Tech tags, skill tags, and chips
+   ======================================== */
+
+/* Container for all skill groups */
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Individual category group */
+.skill-group {
+  text-align: left;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Category names are annotation, matching every other label
+   on the site rather than shouting in the accent colour. */
+.skill-group-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-fg-light);
+  margin-bottom: 0.875rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  justify-content: flex-start;
+}
+
+/* Skills read as plotted values: the category colour is carried by a
+   short tick rather than a heavy left border on a floating pill. */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.4em 0.75em;
+  background: transparent;
+  border: var(--rule) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-fg);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.skill-tag::before {
+  content: '';
+  width: 6px;
+  height: var(--rule-strong);
+  background: var(--tag-color, var(--color-accent));
+  flex-shrink: 0;
+}
+
+.skill-tag:hover {
+  border-color: var(--color-fg-light);
+  background: var(--color-surface-subtle);
+}
+
+.skill-tag-name {
+  white-space: nowrap;
+}
+
+/* Tech tags — squared, quiet, mono. */
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-fg-light);
+  background: transparent;
+  border: var(--rule) solid var(--color-border);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.project-card--linked:hover .tech-tag,
+.project-card--linked:focus-within .tech-tag {
+  color: var(--color-fg);
+  border-color: var(--color-border-alt);
+}
+
+/* Size variations — weight, not scale. */
+.skill-tag--lg {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-bold);
+}
+
+.skill-tag--md {
+  font-weight: var(--font-weight-normal);
+}
+
+.skill-tag--sm {
+  color: var(--color-fg-light);
+}

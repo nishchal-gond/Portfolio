@@ -1,0 +1,71 @@
+/* ========================================
+   COLOR TOKENS
+   Warm neutral paper, ultramarine structure,
+   amber reserved for live instrument readouts.
+   ======================================== */
+
+@theme {
+  /* ===================
+     CORE PALETTE
+     --color-bg     = raised surface (cards, header)
+     --color-bg-alt = page background
+     =================== */
+  --color-bg: #fcfbf9;
+  --color-bg-alt: #f2f1ec;
+  --color-fg: #23272e;
+  --color-fg-bold: #0e1116;
+  --color-fg-light: #545a63;
+
+  /* ===================
+     ACCENT — ultramarine
+     Structure, links, active state.
+     =================== */
+  --color-accent: #1b2fbf;
+  --color-accent-hover: #16249c;
+
+  /* Filled controls need their own pair. A link accent is tuned for contrast
+     against the page; reusing it as a button background put white text on it,
+     which fails badly once the accent lightens for dark mode. */
+  --color-accent-fill: var(--color-accent);
+  --color-accent-fill-hover: var(--color-accent-hover);
+  --color-on-accent: #ffffff;
+  --color-accent-light: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --color-accent-underline: color-mix(in srgb, var(--color-accent) 32%, transparent);
+  --color-accent-underline-strong: color-mix(in srgb, var(--color-accent) 55%, transparent);
+
+  /* ===================
+     SIGNAL — amber
+     Reserved for live/measured values and the
+     current-position marker. Never decorative.
+     --color-signal      text-safe on page bg (AA)
+     --color-signal-mark graphic use only (ticks, dots, rules)
+     =================== */
+  --color-signal: #9a5600;
+  --color-signal-mark: #e8930c;
+
+  /* ===================
+     BORDER COLORS
+     Hairlines do the structural work here, so they are
+     tinted with the ink rather than pure black.
+     =================== */
+  --color-border: rgba(35, 39, 46, 0.14);
+  --color-border-bg: rgba(35, 39, 46, 0.08);
+
+  /* Structural hairlines are meant to be quiet and sit near 1.5:1, which is
+     fine for dividing content but not for the only visible edge of a
+     control. Interactive boundaries use this instead, at 3:1 against paper. */
+  --color-control-border: #767b83;
+  --color-border-alt: rgba(35, 39, 46, 0.24);
+
+  /* ===================
+     SURFACE TOKENS
+     =================== */
+  --color-surface-subtle: rgba(35, 39, 46, 0.035);
+  --color-surface-hover: rgba(35, 39, 46, 0.06);
+  --color-fg-muted: rgba(35, 39, 46, 0.55);
+
+  /* ===================
+     SEMANTIC COLORS
+     =================== */
+  --color-overlay-darker: rgba(14, 17, 22, 0.45);
+}

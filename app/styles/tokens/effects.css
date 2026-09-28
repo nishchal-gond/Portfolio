@@ -1,0 +1,24 @@
+/* ========================================
+   EFFECT TOKENS
+   Instruments sit flat on the panel. Structure comes from
+   hairlines and precise corners, not from float and blur.
+   ======================================== */
+
+@theme {
+  /* ===================
+     BORDER RADIUS
+     Near-square. `--radius-full` survives for the theme
+     toggle and status dots, where a circle is the point.
+     =================== */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-full: 999px;
+
+  /* ===================
+     RULES
+     One hairline weight, used everywhere, so the grid
+     reads as a single drawn system.
+     =================== */
+  --rule: 1px;
+  --rule-strong: 2px;
+}
