@@ -173,3 +173,13 @@
 .resume-print-contact {
   display: none;
 }
+
+.resume-download {
+  margin-top: 1.5rem;
+}
+
+@media print {
+  .resume-download {
+    display: none;
+  }
+}

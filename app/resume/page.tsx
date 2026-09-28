@@ -32,6 +32,13 @@ export default function ResumePage() {
             Hub (LPH), Dubai, taking systems from requirements with business
             teams through to deployment, monitoring and support.
           </p>
+          <a
+            href="/Nishchal_Gond_Resume.pdf"
+            className="button resume-download"
+            download
+          >
+            Download PDF
+          </a>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable, linkable, and reads from the shared profile. The
               screen layout carries these in the footer, which print hides. */}
